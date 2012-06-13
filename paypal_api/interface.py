@@ -11,10 +11,10 @@ from pprint import pformat
 
 import requests
 
-from paypal.settings import PayPalConfig
-from paypal.response import PayPalResponse
-from paypal.exceptions import PayPalError, PayPalAPIResponseError
-from paypal.compat import is_py3
+from paypal_api.settings import PayPalConfig
+from paypal_api.response import PayPalResponse
+from paypal_api.exceptions import PayPalError, PayPalAPIResponseError
+from paypal_api.compat import is_py3
 
 if is_py3:
     #noinspection PyUnresolvedReferences
@@ -22,7 +22,7 @@ if is_py3:
 else:
     import urllib
 
-logger = logging.getLogger('paypal.interface')
+logger = logging.getLogger('paypal_api.interface')
    
 class PayPalInterface(object):
     """

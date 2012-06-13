@@ -1,12 +1,12 @@
 # coding=utf-8
 #noinspection PyUnresolvedReferences
-from paypal.interface import PayPalInterface
+from paypal_api.interface import PayPalInterface
 #noinspection PyUnresolvedReferences
-from paypal.settings import PayPalConfig
+from paypal_api.settings import PayPalConfig
 #noinspection PyUnresolvedReferences
-from paypal.exceptions import PayPalError, PayPalConfigError, PayPalAPIResponseError
+from paypal_api.exceptions import PayPalError, PayPalConfigError, PayPalAPIResponseError
 #noinspection PyUnresolvedReferences
-import paypal.countries
+import paypal_api.countries
 import logging
 
 logging.basicConfig()

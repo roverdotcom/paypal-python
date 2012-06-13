@@ -5,7 +5,7 @@ PayPalResponse parsing and processing.
 import logging
 from pprint import pformat
 
-from paypal.compat import is_py3, is_py25
+from paypal_api.compat import is_py3, is_py25
 
 if is_py3:
     #noinspection PyUnresolvedReferences
@@ -23,7 +23,7 @@ else:
     #noinspection PyUnresolvedReferences, PyDeprecation
     parse_qs = urlparse.parse_qs
 
-logger = logging.getLogger('paypal.response')
+logger = logging.getLogger('paypal_api.response')
 
 class PayPalResponse(object):
     """

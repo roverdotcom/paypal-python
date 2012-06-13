@@ -1,7 +1,7 @@
 # coding=utf-8
 
 import unittest
-from paypal import PayPalAPIResponseError
+from paypal_api import PayPalAPIResponseError
 from . import interface_factory
 from . import api_details
 

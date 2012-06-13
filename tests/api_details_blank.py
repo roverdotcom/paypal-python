@@ -3,7 +3,7 @@ This file contains your PayPal test account credentials. If you are just
 getting started, you'll want to copy api_details_blank.py to api_details.py,
 and substitute the placeholders below with your PayPal test account details.
 """
-from paypal import PayPalConfig
+from paypal_api import PayPalConfig
 
 # Enter your test account's API details here. You'll need the 3-token
 # credentials, not the certificate stuff.

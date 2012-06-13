@@ -1,6 +1,6 @@
 # coding=utf-8
 """
-This module contains config objects needed by paypal.interface.PayPalInterface.
+This module contains config objects needed by paypal_api.interface.PayPalInterface.
 Most of this is transparent to the end developer, as the PayPalConfig object
 is instantiated by the PayPalInterface object.
 """
@@ -8,16 +8,16 @@ import logging
 import os
 from pprint import pformat
 
-from paypal.compat import basestring
-from paypal.exceptions import PayPalConfigError
+from paypal_api.compat import basestring
+from paypal_api.exceptions import PayPalConfigError
 
-logger = logging.getLogger('paypal.settings')
+logger = logging.getLogger('paypal_api.settings')
 
 class PayPalConfig(object):
     """
     The PayPalConfig object is used to allow the developer to perform API
     queries with any number of different accounts or configurations. This
-    is done by instantiating paypal.interface.PayPalInterface, passing config
+    is done by instantiating paypal_api.interface.PayPalInterface, passing config
     directives as keyword args.
     """
     # Used to validate correct values for certain config directives.

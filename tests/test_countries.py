@@ -1,7 +1,7 @@
 # coding=utf-8
 
 import unittest
-from paypal import countries
+from paypal_api import countries
 
 class TestCountries(unittest.TestCase):
 

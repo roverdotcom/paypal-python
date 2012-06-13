@@ -27,10 +27,10 @@ required = [
 ]
 
 packages = [
-    'paypal',
+    'paypal_api',
 ]
 
-setup(name = 'paypal',
+setup(name = 'paypal_api',
       version=VERSION,
       description='PayPal API implementation in Python.',
       long_description=LONG_DESCRIPTION,

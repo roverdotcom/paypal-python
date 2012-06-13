@@ -16,7 +16,7 @@ project_root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if not project_root_dir in sys.path:
     sys.path.insert(0, project_root_dir)
 
-from paypal import PayPalInterface
+from paypal_api import PayPalInterface
 
 try:
     from tests import api_details
