@@ -127,7 +127,7 @@ class PayPalInterface(object):
         response = PayPalResponse(req.text, self.config)
 
         logger.debug('PayPal NVP API Endpoint: %s'% self.config.API_ENDPOINT)
-    
+
         if not response.success:
             logger.error('A PayPal API error was encountered.')
             logger.error('PayPal NVP Query Key/Vals:\n%s' % pformat(url_values))
@@ -275,6 +275,47 @@ class PayPalInterface(object):
         """
         kwargs.update(self._sanitize_locals(locals()))
         return self._call('DoDirectPayment', **kwargs)
+
+    def do_mass_pay(self, **kwargs):
+        """
+        Info about MassPay and IPN:
+        https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/howto_api_masspay
+
+        MassPay API using NVP:
+        https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_MassPayUsingAPI#id101DEJ0100A
+
+        MassPay ERROR codes:
+        https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_MassPayUsingAPI#id101DEN0B0E9
+
+        Required Kwargs
+        ---------------
+
+        * receivertype='EmailAddress'
+        * l_email0=<recipient's email>
+        * l_amt0=<amount as float>
+        * currencycode
+
+        Sample Response Attrs
+        ---------------------
+        * response.success (True)
+        * response.build (u'3067390')
+        * response.correlationid (u'973e7066ff7c')
+        * response.timestamp (u'2012-06-14T18:01:56Z')
+        * response.version (u'72.0')
+
+        Paypal documentation says to ALWAYS log correlationid.
+
+        Sample Error Response
+        ---------------------
+        * response.success (False)
+        * response.correlationid (u'46c853a6948ba')
+        * response.l_shortmessage0 (Transaction refused because of an invalid argument.)
+        # response.l_longmessage0 (The recipient's email is missing)
+
+        """
+
+        return self._call('MassPay', **kwargs)
+
 
     def do_void(self, **kwargs):
         """Shortcut for the DoVoid method.
