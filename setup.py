@@ -3,7 +3,7 @@ import re
 from setuptools import setup
 
 VERSION_PATTERN = re.compile(r'VERSION\s*=\s*(.*)$', re.I)
-VERSION = VERSION_PATTERN.search(open('paypal/__init__.py').read()) \
+VERSION = VERSION_PATTERN.search(open('paypal_api/__init__.py').read()) \
                          .groups()[0].strip().strip('\'"')
 
 LONG_DESCRIPTION = \
